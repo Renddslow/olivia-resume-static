@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Olivia McElwee | Educator in Omaha, NE</title>
+		<script src="./oliviamcelwee.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<page>
+			<div class="flex-container">
+				<div class="main">
+					<header>
+						<div class="color-block"></div>
+						<h1><span>Olivia</span> McElwee</h1>
+						<p class="job-title"><strong>Educator</strong> <i class="material-icons">place</i> Omaha, NE</p>
+						<p class="contact"><a href="tel:4026900493">402.690.0493</a> &bullet; <a href="mailto:odmcelwee@gmail.com">odmcelwee@gmail.com</a></p>
+					</header>
+					<section id="summary"></section>
+					<section id="education"></section>
+					<section id="experience"></section>
+					<p class="ref">References available upon request</p>
+				</div>
+			</div>
+		</page>
+		<script>
+			(function() {
+				const summaryTemplate = summary => `<p>${summary}</p>`;
+				const educationTemplate = education => {
+					return ['<h2>Education</h2>', ...education.map(ed => {
+						let content = `<div class="container education-container"><div class="education-dates"><span>${ed.dates}</span></div><div class="education-content">`;
+						if (ed.type === 'secondary' && ed.degrees) {
+							content += ed.degrees.map(e => `<h3>${e.type} ${e.name}</h3>`).join('\n');
+						}
+						content += `<p>${ed.school}</p></div></div>`;
+						return content;
+					})].join('\n');
+				};
+				const experienceTemplate = experience => {
+					const industryHeader = '<h2>Teaching Experience</h2>';
+					const industry = experience.industry.map(industry => {
+						let content = `<div class="container experience-container"><div class="experience-dates"><span>${industry.dates}</span></div><div class="spacer"></div><div class="experience-content">`;
+						content += `<h3>${industry.company}</h3>`;
+						content += industry.titles.map(i => i.dates ? `<p><em>${i.title} (${i.dates})</em></p>` : `<p><em>${i.title}</em></p>`).join('\n');
+						content += `<p class="coop"><strong>Cooperating Teacher:</strong> ${industry.reportedTo}`;
+						content += `<p>${industry.description}</p></div></div>`;
+						return content;
+					}).join('\n');
+					const otherHeader = '<h2>General Experience</h2>';
+					const other = experience.other.map(job => {
+						let content = `<div class="container experience-container"><div class="experience-dates"><span>${job.dates}</span></div><div class="spacer"></div><div class="experience-content">`;
+						content += `<h3>${job.company}</h3>`;
+						content += job.titles.map(i => i.dates ? `<p><em>${i.title} (${i.dates})</em></p>` : `<p><em>${i.title}</em></p>`).join('\n');
+						content += `<p>${job.description}</p></div></div>`;
+						return content;
+					}).join('\n');
+					return [ industryHeader, industry, otherHeader, other ].join('\n');
+				};
+
+				const summary = document.getElementById('summary');
+				summary.innerHTML = summaryTemplate(window.resume.summary);
+				const education = document.getElementById('education');
+				education.innerHTML = educationTemplate(window.resume.education);
+				const experience = document.getElementById('experience');
+				experience.innerHTML = experienceTemplate(window.resume.experience);
+			})();
+		</script>
+	</body>
+</html>
