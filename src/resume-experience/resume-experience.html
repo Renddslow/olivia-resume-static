@@ -1,0 +1,110 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
+
+<dom-module id="resume-experience">
+    <template>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            :host {
+                display: block;
+            }
+
+            section.experience {
+                margin: 4em 0;
+            }
+
+            .experience-dates {
+                flex-basis: 25%;
+                flex-grow: 0;
+                page-break-after: avoid;
+            }
+
+            .experience-content {
+                flex-basis: 70%;
+                flex-grow: 0;
+                margin-left: 1em;
+            }
+
+            .container {
+                display: flex;
+                width: 100%;
+                flex-direction:  row;
+                flex-wrap: nowrap;
+                margin-top: 16px;
+                flex-grow: 0;
+                justify-content: flex-start;
+                page-break-inside: avoid;
+            }
+
+            .experience-content h3 {
+                page-break-after: avoid;
+                margin-top: 0;
+            }
+
+            .coop {
+                font-size: 14px;
+            }
+
+            .experience-content p {
+                margin: 8px 0;
+            }
+        </style>
+        <section class="experience">
+            <h2>[[titleCaseType(type)]] Experience</h2>
+            <template is="dom-repeat" items="[[experience]]">
+                <div class="container experience-container">
+                    <div class="experience-dates">
+                        <span>{{item.dates}}</span>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="experience-content">
+                        <h3>{{item.company}}</h3>
+                        <template is="dom-repeat" items="[[item.titles]]">
+                            <p><em>[[getTitle(item)]]</em></p>
+                        </template>
+                        <template is="dom-if" if="{{item.reportedTo}}">
+                            <p class="coop">
+                                <strong>Reported To</strong>
+                                {{item.reportedTo}}
+                            </p>
+                        </template>
+                        <p class="industry-description">{{item.description}}</p>
+                    </div>
+                </div>
+            </template>
+        </section>
+    </template>
+
+    <script>
+      /**
+       * @customElement
+       * @polymer
+       */
+      class ResumeExperience extends Polymer.Element {
+        static get is() { return 'resume-experience'; }
+        static get properties() {
+          return {
+            experience: {
+              type: Array
+            },
+            type: {
+              type: String
+            }
+          };
+        }
+
+        getTitle(item) {
+          return item.dates ? `${item.title} (${item.dates})` : item.title;
+        }
+
+        titleCaseType(type) { return type.charAt(0).toUpperCase() + type.slice(1); }
+      }
+
+      window.customElements.define(ResumeExperience.is, ResumeExperience);
+    </script>
+</dom-module>

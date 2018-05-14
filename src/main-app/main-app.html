@@ -1,0 +1,73 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../resume-header/resume-header.html">
+<link rel="import" href="../resume-summary/resume-summary.html">
+<link rel="import" href="../resume-education/resume-education.html">
+<link rel="import" href="../resume-experience/resume-experience.html">
+<script src="../../oliviamcelwee.js"></script>
+
+<dom-module id="main-app">
+  <template>
+    <style>
+      page {
+        max-width: 7.5in;
+        display: block;
+        margin: 2em auto;
+        overflow: none;
+        position: relative;
+        font-family: 'Raleway', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+        color: #4b4b4b
+      }
+
+      .ref {
+        margin-top: 2em;
+      }
+
+      @media print {
+        page {
+          color: #000;
+        }
+      }
+    </style>
+
+    <page>
+      <resume-header></resume-header>
+      <resume-summary summary="[[summary]]"></resume-summary>
+      <resume-experience experience="[[experience.industry]]" type="teaching"></resume-experience>
+      <resume-education education="[[education]]"></resume-education>
+      <resume-experience experience="[[experience.other]]" type="general"></resume-experience>
+      <p class="ref">References available upon request</p>
+    </page>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class MainApp extends Polymer.Element {
+      static get is() { return 'main-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'main-app'
+          },
+          summary: {
+            type: String,
+            value: window.resume.summary
+          },
+          education: {
+            type: Array,
+            value: window.resume.education
+          },
+          experience: {
+            type: Object,
+            value: window.resume.experience
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MainApp.is, MainApp);
+  </script>
+</dom-module>

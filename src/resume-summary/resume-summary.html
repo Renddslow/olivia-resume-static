@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="resume-summary">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+
+            .summary {
+                margin: 24px 0 32px;
+                line-height: 1.5;
+                font-size: 16px;
+            }
+        </style>
+        <section class="summary">
+            <p>[[summary]]</p>
+        </section>
+    </template>
+
+    <script>
+      /**
+       * @customElement
+       * @polymer
+       */
+      class ResumeSummary extends Polymer.Element {
+        static get is() { return 'resume-summary'; }
+        static get properties() {
+          return {
+            summary: {
+              type: String
+            }
+          };
+        }
+      }
+
+      window.customElements.define(ResumeSummary.is, ResumeSummary);
+    </script>
+</dom-module>

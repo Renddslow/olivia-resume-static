@@ -11,7 +11,7 @@ window.resume = {
 				titles: [
 					{ title: 'Long-term Substitute - English' }
 				],
-				reportedTo: 'Mrs. Theresa Huber &amp; Mr. Dan Radicia',
+				reportedTo: 'Mrs. Theresa Huber & Mr. Dan Radicia',
 				description: ''
 			},
 			{

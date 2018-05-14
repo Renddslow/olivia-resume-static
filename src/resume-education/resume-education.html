@@ -1,0 +1,95 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
+
+<dom-module id="resume-education">
+    <template>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            :host {
+                display: block;
+            }
+
+            section.education {
+                margin: 2em 0;
+            }
+
+            .education-dates {
+                flex-basis: 25%;
+                flex-grow: 0;
+                page-break-after: avoid;
+            }
+
+            .education-content {
+                flex-basis: 70%;
+                flex-grow: 0;
+                margin-left: 1em;
+            }
+
+            .education-content h2 {
+                page-break-after: avoid;
+            }
+
+            .education-content h3 {
+                font-size: 14px;
+                margin: 4px 0;
+            }
+
+            .container {
+                display: flex;
+                width: 100%;
+                flex-direction:  row;
+                flex-wrap: nowrap;
+                margin-top: 16px;
+                flex-grow: 0;
+                justify-content: flex-start;
+                page-break-inside: avoid;
+            }
+
+            .education-content p {
+                margin: 0;
+            }
+        </style>
+        <section class="education">
+            <h2>Education</h2>
+            <template is="dom-repeat" items="[[education]]">
+                <div class="container education-container">
+                    <div class="education-dates">
+                        <span>{{item.dates}}</span>
+                    </div>
+                    <div class="education-content">
+                        <template is="dom-if" if="{{item.type === 'secondary' && item.degrees}}">
+                            <template is="dom-repeat" items="[[item.degrees]]">
+                                <h3>{{item.type}} {{item.name}}</h3>
+                            </template>
+                        </template>
+                        <p>{{item.school}}</p>
+                    </div>
+                </div>
+            </template>
+        </section>
+    </template>
+
+    <script>
+      /**
+       * @customElement
+       * @polymer
+       */
+      class ResumeEducation extends Polymer.Element {
+        static get is() { return 'resume-education'; }
+        static get properties() {
+          return {
+            education: {
+              type: Array
+            }
+          };
+        }
+      }
+
+      window.customElements.define(ResumeEducation.is, ResumeEducation);
+    </script>
+</dom-module>

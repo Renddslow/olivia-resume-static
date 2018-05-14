@@ -1,0 +1,7 @@
+{
+  "name": "olivia-resume-static",
+  "short_name": "olivia-resume-static",
+  "description": "A component-based resume site for Olivia McElwee",
+  "start_url": "/",
+  "display": "standalone"
+}
