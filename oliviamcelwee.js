@@ -6,6 +6,15 @@ window.resume = {
 	experience: {
 		industry: [
 			{
+				company: 'Elkhorn High School',
+				dates: '2018',
+				titles: [
+					{ title: 'Long-term Substitute - English' }
+				],
+				reportedTo: 'Mrs. Theresa Huber &amp; Mr. Dan Radicia',
+				description: ''
+			},
+			{
 				company: 'Daniel Boone Middle School',
 				dates: '2016',
 				titles: [
@@ -148,6 +157,6 @@ window.resume = {
 			contact: UPON_REQUEST
 		}
 	],
-	summary: 'My name is Olivia McElwee. I am an educator with a passion for language and literature. I love being able to inspire students to grow, learn, and mature through engaging lessons. By obtaining a double major, I feel equipped to address the different learning levels and abilities that I may encounter in my classroom. I enjoy learning as much as teach and I am looking forward to continuing my education, learning new and creative ways to engage students.'
+	summary: 'My name is Olivia McElwee. I am an educator with a passion for language and literature. I love being able to inspire students to grow, learn, and mature through engaging lessons. By obtaining a double major, I feel equipped to address the different learning levels and abilities that I may encounter in my classroom. I enjoy learning as much as teaching. I am looking forward to continuing my education, as well as learning new and creative ways to engage students.'
 };
 
