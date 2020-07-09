@@ -73,7 +73,11 @@
                                 {{item.reportedTo}}
                             </p>
                         </template>
-                        <p class="industry-description">{{item.description}}</p>
+                        <p class="industry-description">
+                            <template is="dom-repeat" items="[[splittle(item.description)]]" as="word">
+                                <span>{{word}}</span>
+                            </template>
+                        </p>
                     </div>
                 </div>
             </template>
@@ -103,6 +107,10 @@
         }
 
         titleCaseType(type) { return type.charAt(0).toUpperCase() + type.slice(1); }
+
+        splittle(words) {
+          return words.split(' ');
+        }
       }
 
       window.customElements.define(ResumeExperience.is, ResumeExperience);

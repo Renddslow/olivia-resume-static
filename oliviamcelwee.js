@@ -9,10 +9,11 @@ window.resume = {
 				company: 'Elkhorn High School',
 				dates: '2018',
 				titles: [
-					{ title: 'Long-term Substitute - English' }
+					{ title: 'Long-term Substitute - 10th & 12th Grade English' },
+					{ title: 'Day-to-day Substitute - Various' }
 				],
 				reportedTo: 'Mrs. Theresa Huber & Mr. Dan Radicia',
-				description: ''
+				description: 'As a long term substitute for a six-week term I executed both pre-defined and self-planned lessons, graded student assignments, communicated with parents, and collaborated with and sought advice from fellow teachers. I taught lessons and led discussion in To Kill a Mockingbird and Night, integrating academic language templates into formal writing and continuing the teaching of MLA formatted research papers.\nAs day-to-day substitute, I have carried out predefined lesson plans combined with effective classroom management to leave as small a gap as possible in the teacher\'s absence. When possible I also seek out additional ways to support the teacher I substitute for by grading assignments.'
 			},
 			{
 				company: 'Daniel Boone Middle School',
@@ -21,7 +22,7 @@ window.resume = {
 					{ title: 'Student Teaching - 7th Grade English' }
 				],
 				reportedTo: 'Mrs. Beth Baker',
-				description: ''
+				description: 'As a student teacher I had the opportunity to work under a highly experienced English teacher and learn the ins and outs of both classroom management and lesson plan preparation. Over the course of the semester we covered And Then There Were None by Agatha Christie and The Cay by Theodore Taylor. I also was given the opportunity to plan and teach a narrative writing unit. The unit covered plot, setting, characterization, dialogue, and archetypes. The unit culminated in a fictional narrative paper from each student.'
 			},
 			{
 				company: 'Great Valley Middle School',
@@ -30,7 +31,7 @@ window.resume = {
 					{ title: 'Field Experience - 7th Grade English' }
 				],
 				reportedTo: 'Ms. Christine Nystrom',
-				description: ''
+				description: 'Collaborated with teachers to teach various lessons throughout the semester, including a lesson on pronouns and the Walt Whitman poem, "O Captain My Captain".'
 			},
 		],
 		other: [
